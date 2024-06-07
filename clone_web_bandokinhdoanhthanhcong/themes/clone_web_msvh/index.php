@@ -263,10 +263,30 @@
                                 <h2><?php echo @$settingThemes['uudaigia'];?></h2>
                             </div>
                             <div class="form-time-down row">
-                                <p class="form-time-down-detail col-md-2 col-3"  data-unit="days" data-initial-value="3">00</p>
+                                <div class="clock-container">
+                                    <div id="clockdiv">
+                                        <!-- <div>
+                                            <span class="days" data-unit="days" data-initial-value="<?php echo @$settingThemes['timedownngay']; ?>">00</span>
+                                            <div class="smalltext">days</div>
+                                        </div> -->
+                                        <div>
+                                            <span class="hours" data-unit="hours" data-initial-value="<?php echo @$settingThemes['hour']; ?>">00</span>
+                                            <div class="smalltext">Hours</div>
+                                        </div>
+                                        <div>
+                                            <span class="minutes" data-unit="minutes" data-initial-value="<?php echo @$settingThemes['minutes']; ?>">00</span>
+                                            <div class="smalltext">Minutes</div>
+                                        </div>
+                                        <div>
+                                            <span class="seconds" data-unit="seconds" data-initial-value="<?php echo @$settingThemes['seconds']; ?>">00</span>
+                                            <div class="smalltext">Seconds</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <p class="form-time-down-detail col-md-2 col-3"  data-unit="days" data-initial-value="3">00</p>
                                 <p class="form-time-down-detail col-md-2 col-3" data-unit="hours" data-initial-value="12">00</p>
                                 <p class="form-time-down-detail col-md-2 col-3" data-unit="minutes" data-initial-value="30">00</p>
-                                <p class="form-time-down-detail col-md-2 col-3"  data-unit="seconds" data-initial-value="45">00</p>
+                                <p class="form-time-down-detail col-md-2 col-3"  data-unit="seconds" data-initial-value="45">00</p> -->
                               
                             </div>
                             

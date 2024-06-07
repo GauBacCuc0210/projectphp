@@ -990,7 +990,56 @@ header {
     margin-left: 7px;
 
 }
+/* time down */
 
+.section-header-page h1{
+    color: #396;
+    font-weight: 100;
+    font-size: 40px;
+    margin: 40px 0px 20px;
+  }
+  
+  #clockdiv{
+      font-family: sans-serif;
+      color: #fff;
+      display: inline-block;
+      font-weight: 100;
+      text-align: center;
+      font-size: 30px;
+  }
+  
+  #clockdiv > div{
+      padding: 2px 5px 2px 5px;
+      border-radius: 3px;
+      background: #2897F8;
+      display: inline-block;
+  }
+  
+  #clockdiv div > span{
+      padding: 10px;
+      border-radius: 3px;
+      background: #1281e2;
+      display: inline-block;
+  }
+  
+  .smalltext{
+      padding-top: 5px;
+      font-size: 16px;
+  }
+  .section-form-buy #clockdiv > div{
+    padding: 2px 5px 2px 5px;
+    border-radius: 3px;
+    border-color: rgb(255, 255, 255);
+    background-image: radial-gradient(circle, rgb(106, 17, 203), rgb(37, 117, 252));
+    display: inline-block;
+}
+.section-form-buy #clockdiv div > span{
+    padding: 10px;
+    border-radius: 3px;
+    border-color: rgb(255, 255, 255);
+    background-image: radial-gradient(circle, rgb(106, 17, 203), rgb(37, 117, 252));
+    display: inline-block;
+}
 @media (max-width: 1399px) {
     .section-price .position-price-gold {
       
@@ -1211,6 +1260,23 @@ header {
     .section-price .free-title {
         font-size: 37px;
     }
+    #clockdiv {
+       
+        font-size: 15px;
+    }
+    #clockdiv > div {
+
+    }
+    .smalltext {
+        padding-top: 5px;
+        font-size: 9px;
+    }
+    .buy-title{
+        width: 47%;
+    }
+    .section-header-page .time-down-and-resgister {
+        justify-content: space-around;
+    }
   }
   @media (max-width: 767px) {
     .section-header-page .time-down-and-resgister {
@@ -1367,6 +1433,10 @@ header {
     .section-form-buy .border-form-buy {
         max-width: 100%;
     }
+    .section-header-page .header-title {
+        font-size: 24px;
+        justify-content: space-around;
+    }
   }
   @media (max-width: 425px) {
     .section-some-student .information-member h2{
@@ -1377,6 +1447,23 @@ header {
     }
     .section-price .button-submit-course {
         bottom: 15%;
+    }
+    #clockdiv {
+       
+        font-size: 15px;
+    }
+    #clockdiv > div {
+
+    }
+    .smalltext {
+        padding-top: 5px;
+        font-size: 9px;
+    }
+    .buy-title{
+        width: 47%;
+    }
+    .section-header-page .time-down-and-resgister {
+        justify-content: space-around;
     }
   }
   @media (max-width: 400px) {
@@ -1490,7 +1577,20 @@ header {
     .section-price .button-submit-course {
         bottom: 9%;
     }
+    #clockdiv {
+       
+        font-size: 15px;
+    }
+    #clockdiv > div {
 
+    }
+    .smalltext {
+        padding-top: 5px;
+        font-size: 9px;
+    }
+    .buy-title{
+        width: 47%;
+    }
   }
   
 

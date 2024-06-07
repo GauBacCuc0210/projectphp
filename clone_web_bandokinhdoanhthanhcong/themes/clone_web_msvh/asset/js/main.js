@@ -1,50 +1,46 @@
-function getRemainingTime(endTime) {
-    const now = new Date().getTime();
-    return Math.max(0, endTime - now);
+function initializeClocks() {
+    // Tìm tất cả các container có class "clock-container"
+    var clockContainers = document.querySelectorAll('.clock-container');
+
+    // Lặp qua từng container
+    clockContainers.forEach(function(container) {
+        // Lấy ra các phần tử span chứa giờ, phút và giây
+        
+        var hoursSpan = container.querySelector('.hours');
+        var minutesSpan = container.querySelector('.minutes');
+        var secondsSpan = container.querySelector('.seconds');
+
+        // Thiết lập thời gian ban đầu từ dữ liệu initial-value
+        var hours = parseInt(hoursSpan.getAttribute('data-initial-value'));
+        var minutes = parseInt(minutesSpan.getAttribute('data-initial-value'));
+        var seconds = parseInt(secondsSpan.getAttribute('data-initial-value'));
+
+        // Cập nhật hiển thị thời gian mỗi giây
+        var interval = setInterval(function() {
+            seconds--;
+            if (seconds < 0) {
+                minutes--;
+                seconds = 59;
+            }
+            if (minutes < 0) {
+                hours--;
+                minutes = 59;
+            }
+            // Định dạng thời gian để hiển thị với hai chữ số
+            hoursSpan.textContent = ('0' + hours).slice(-2);
+            minutesSpan.textContent = ('0' + minutes).slice(-2);
+            secondsSpan.textContent = ('0' + seconds).slice(-2);
+
+            // Kiểm tra xem thời gian có kết thúc không
+            if (hours === 0 && minutes === 0 && seconds === 0) {
+                clearInterval(interval);
+                // Thêm các hành động sau khi thời gian kết thúc (nếu cần)
+            }
+        }, 1000); // Mỗi giây
+    });
 }
 
-function updateCountdownDisplay(container, remainingTime) {
-    const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((remainingTime / 1000 / 60) % 60);
-    const seconds = Math.floor((remainingTime / 1000) % 60);
-
-    if (container.querySelector('[data-unit="days"]')) {
-        container.querySelector('[data-unit="days"]').innerText = String(days).padStart(2, '0');
-    }
-    container.querySelector('[data-unit="hours"]').innerText = String(hours).padStart(2, '0');
-    container.querySelector('[data-unit="minutes"]').innerText = String(minutes).padStart(2, '0');
-    container.querySelector('[data-unit="seconds"]').innerText = String(seconds).padStart(2, '0');
-}
-
-function initializeCountdown(container, storageKey) {
-    const initialDays = parseInt(container.querySelector('[data-unit="days"]')?.dataset.initialValue || 0, 10);
-    const initialHours = parseInt(container.querySelector('[data-unit="hours"]').dataset.initialValue, 10);
-    const initialMinutes = parseInt(container.querySelector('[data-unit="minutes"]').dataset.initialValue, 10);
-    const initialSeconds = parseInt(container.querySelector('[data-unit="seconds"]').dataset.initialValue, 10);
-
-    const countdownDuration = ((initialDays * 24 * 3600) + (initialHours * 3600) + (initialMinutes * 60) + initialSeconds) * 1000;
-    let endTime = localStorage.getItem(storageKey);
-    if (!endTime) {
-        endTime = new Date().getTime() + countdownDuration;
-        localStorage.setItem(storageKey, endTime);
-    } else {
-        endTime = parseInt(endTime, 10);
-    }
-
-    const interval = setInterval(() => {
-        const remainingTime = getRemainingTime(endTime);
-        updateCountdownDisplay(container, remainingTime);
-
-        if (remainingTime <= 0) {
-            clearInterval(interval);
-            localStorage.removeItem(storageKey);
-            alert('Countdown finished!');
-        }
-    }, 1000);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCountdown(document.querySelector('.time-down-and-resgister .time-down'), 'endTime1');
-    initializeCountdown(document.querySelector('.form-time-down'), 'endTime2');
-});
+// Gọi hàm để áp dụng mã JavaScript cho tất cả các đồng hồ khi trang được tải
+window.onload = function() {
+    initializeClocks();
+};

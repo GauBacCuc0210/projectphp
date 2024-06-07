@@ -25,12 +25,27 @@
                         <h2 class="free-title"><a href=""><?php echo @$settingThemes['leftheader3']; ?></a></h2>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12 d-flex time-down-and-resgister">
-                        <div class="d-flex time-down">
-                           
+                       <div class="clock-container">
+                        <div id="clockdiv">
+                                <div>
+                                    <span class="hours" data-unit="hours" data-initial-value="<?php echo @$settingThemes['hour']; ?>">00</span>
+                                    <div class="smalltext">Hours</div>
+                                </div>
+                                <div>
+                                    <span class="minutes" data-unit="minutes" data-initial-value="<?php echo @$settingThemes['minutes']; ?>">00</span>
+                                    <div class="smalltext">Minutes</div>
+                                </div>
+                                <div>
+                                    <span class="seconds" data-unit="seconds" data-initial-value="<?php echo @$settingThemes['seconds']; ?>">00</span>
+                                    <div class="smalltext">Seconds</div>
+                                </div>
+                            </div>
+                       </div>
+                        <!-- <div class="d-flex time-down">
                             <p class="time-down-detail" data-unit="hours" data-initial-value="<?php echo @$settingThemes['hour']; ?>">00</p>
                             <p class="time-down-detail" data-unit="minutes" data-initial-value="<?php echo @$settingThemes['minutes']; ?>">00</p>
                             <p class="time-down-detail" data-unit="seconds" data-initial-value="<?php echo @$settingThemes['seconds']; ?>">00</p>
-                        </div>
+                        </div> -->
                         <div class="button-register">
                              <a href=""><p><?php echo @$settingThemes['button1']; ?></p></a>   
                         </div>
