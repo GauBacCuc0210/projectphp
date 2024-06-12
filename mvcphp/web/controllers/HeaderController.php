@@ -1,9 +1,8 @@
 <?php 
-    include WEB_ROOT . '/services/PositionService.php';
-    include WEB_ROOT . '/services/MenusService.php';
-    include WEB_ROOT . '/services/SubmenusService.php';
     require_once WEB_ROOT . '/services/HeaderService.php';
-    class HomeController{
+    require_once WEB_ROOT . '/services/MenusService.php';
+    require_once WEB_ROOT . '/services/SubmenusService.php';
+    class HeaderController{
         public function index(){
             $HeaderService = new HeaderService();
             $getHeader = $HeaderService->getallHeader();
@@ -11,6 +10,7 @@
             $getMenus = $MenusService->getallMenus();
             $submenusService = new SubmenusService();
             $getsubMenus = $submenusService->getallsubmenus();
+            
             $menuWithSubmenus=[];
             foreach ($getsubMenus as $row) {
                 $menu_id = $row['menu_id'];
@@ -28,8 +28,7 @@
                     ];
                 }
             }
-            include WEB_ROOT . '/views/home/index.php';
-            
+            include WEB_ROOT . '/views/layout/header.php';
         }
         
     }   

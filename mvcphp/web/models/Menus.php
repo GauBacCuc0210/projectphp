@@ -13,7 +13,7 @@
             return $this->name;
         }
         public function setName($name){
-            return $this->name = $name;
+           $this->name = $name;
         }
         public function getLinks(){
             return $this->links;

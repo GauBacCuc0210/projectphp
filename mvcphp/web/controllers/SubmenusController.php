@@ -1,12 +1,8 @@
 <?php 
-    include WEB_ROOT . '/services/PositionService.php';
+    require_once WEB_ROOT . '/services/SubmenusService.php';
     include WEB_ROOT . '/services/MenusService.php';
-    include WEB_ROOT . '/services/SubmenusService.php';
-    require_once WEB_ROOT . '/services/HeaderService.php';
-    class HomeController{
+    class SubmenusController{
         public function index(){
-            $HeaderService = new HeaderService();
-            $getHeader = $HeaderService->getallHeader();
             $MenusService = new MenusService();
             $getMenus = $MenusService->getallMenus();
             $submenusService = new SubmenusService();
@@ -28,8 +24,8 @@
                     ];
                 }
             }
-            include WEB_ROOT . '/views/home/index.php';
-            
+        
+            include WEB_ROOT . '/views/layout/header.php';
         }
         
     }   

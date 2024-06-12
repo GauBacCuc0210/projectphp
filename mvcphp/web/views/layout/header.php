@@ -30,15 +30,13 @@
             <div class="topbar">
                 <div class="container-fluid">
                     <div class="row">
+                    <?php foreach ($getHeader as $header): ?>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-12 topbar-phone">
-                            <img src="<?= DOMAINS.'/public/image/headphone.png'?>" alt="">&nbsp;
-                            <span>0963.514.244</span>
+                            <img src="<?= $header['image'] ?>" alt="">&nbsp;
+                            <span><?= $header['phone'] ?></span>
                         </div>
-            
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-12 topbar-logo">
-                            <a href="/"><img src="<?= DOMAINS.'/public/image/logo.png'?>" alt=""></a>
-                        </div>
-            
+                       
+                    <?php endforeach; ?>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-12 topbar-group-button">
                             <div class="topbar-button">
                                 <img src="<?= DOMAINS .'/public/image/user.png'?>" alt="">
@@ -61,13 +59,27 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <?php foreach ($getMenus as $menus):?>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#"><?= $menus['name']?></a>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <?php foreach ($menuWithSubmenus as $menu): ?>
+                                <?php if (count($menu['submenus']) > 0): ?>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="<?= $menu['link'] ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <?= $menu['name'] ?>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <?php foreach ($menu['submenus'] as $submenu): ?>
+                                                <a class="dropdown-item" href="<?= $submenu['link'] ?>"><?= $submenu['name'] ?></a>
+                                            <?php endforeach; ?>
+                                        </div>
                                     </li>
-                                <?php endforeach; ?>
-                            </ul>
+                                <?php else: ?>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="<?= $menu['link'] ?>"><?= $menu['name'] ?></a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                      
                         <form class="menu-form-search d-flex" role="search">
                             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success button-search" type="submit"><img src="/public/image/iconsearch.png" alt=""></button>
@@ -76,7 +88,6 @@
                     </div>
                 </nav>
             </div>
-
             <!-- mobile -->
             <!-- <div class="menu-mobile">
                 <div class="menu-mobile-inner">

@@ -1,9 +1,9 @@
 <?php 
-    include WEB_ROOT . '/services/PositionService.php';
+    require_once WEB_ROOT .'/services/NewsService.php';
     include WEB_ROOT . '/services/MenusService.php';
     include WEB_ROOT . '/services/SubmenusService.php';
     require_once WEB_ROOT . '/services/HeaderService.php';
-    class HomeController{
+    class NewsController {
         public function index(){
             $HeaderService = new HeaderService();
             $getHeader = $HeaderService->getallHeader();
@@ -28,10 +28,10 @@
                     ];
                 }
             }
-            include WEB_ROOT . '/views/home/index.php';
-            
+
+            include WEB_ROOT .'/views/news/news.php';
         }
-        
-    }   
+    }
+
 
 ?>
